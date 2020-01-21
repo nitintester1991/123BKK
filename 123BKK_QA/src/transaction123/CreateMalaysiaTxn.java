@@ -22,11 +22,10 @@ public class CreateMalaysiaTxn {
 		ClassDefinitions def = new ClassDefinitions(driver);
 		
 		def.chrome();		
-		def.URL("https://uat.123.co.id/DemoShopping/shopping.aspx");
+		def.URL("http://automationpractice.com/index.php");
 		
-		def.Element_ID(driver,"");
-		
-		
+		def.Click_Xpath("//a[@class='login']");
+		def.Element_ID("//a[@class='login']");
 		
 		
 		

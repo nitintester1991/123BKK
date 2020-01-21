@@ -1,5 +1,7 @@
 package allClasses;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,9 +18,10 @@ public class ClassDefinitions {
 	}
 
 	public void chrome() {
-		System.setProperty("webdriver.chrome.driver", "E:\\Softwares\\BrowserDriver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"\\Drivers\\chromedriver.exe");
 		this.driver = new ChromeDriver();
 		this.driver.manage().window().maximize();
+		this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	public void URL(String url) {
@@ -26,8 +29,18 @@ public class ClassDefinitions {
 		this.driver.get(url);
 	}
 
-	public void Element_ID(WebDriver driver, String id) {
-		driver.findElement(By.id(id));
+	public void Element_ID(String id) {
+		this.driver.findElement(By.id(id));
 	}
+
+	public void Element_Xpath(String xpath) {
+		this.driver.findElement(By.xpath(xpath));
+	}
+	
+	public void Click_Xpath(String xpath) {
+		this.driver.findElement(By.xpath(xpath)).click();;
+	}
+
+	
 
 }
