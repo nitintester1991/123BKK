@@ -54,6 +54,11 @@ public class ClassDefinitions {
 		this.driver.findElement(By.id(id)).click();;
 	}
 	
+	/*
+	 * 
+	 * Try this one except othere
+	 */
+	
 
 	public void close() {
 		this.driver.close();
