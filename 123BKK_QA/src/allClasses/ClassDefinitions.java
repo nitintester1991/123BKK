@@ -50,11 +50,16 @@ public class ClassDefinitions {
 	public void Click_Xpath(String xpath) {
 		this.driver.findElement(By.xpath(xpath)).click();;
 	}
+	public void Click_id(String id) {
+		this.driver.findElement(By.id(id)).click();;
+	}
+	
 
 	public void close() {
 		this.driver.close();
 	}
  
+	
 	 //load/navigate a new web page
     public void navigatePage(String url) {
 		this.driver.navigate().to(url);
