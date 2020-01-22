@@ -41,6 +41,10 @@ public class ClassDefinitions {
 		this.driver.findElement(By.xpath(xpath)).click();;
 	}
 
+	public void close() {
+		this.driver.close();
+	}
+
 	
 
 }
