@@ -21,20 +21,15 @@ public class CreateMalaysiaTxn {
 		WebDriver driver = null;
 		ClassDefinitions def = new ClassDefinitions(driver);
 		
-		def.chrome();		
+		def.Chrome();		
 		def.URL("https://uat.123.co.th/DemoShopping/shopping.aspx");
 		System.out.println("Site Launched");
 		def.click("XPaTh", "//a[contains(text(),'Cancel')]");
-		def.implicit(5);
+		def.implicit();
 		
 		
 		
-//		def.Click_Xpath("//a[@class='login']");
-//		def.Element_ID("//a[@class='login']");
-//		
-//		
-//		
-//		
+//	
 //		 WebElement btn=driver.findElement(By.xpath("//input[@id= 'ContentPlaceHolder2_btnPaint4']"));
 //		 btn.click();
 //		 WebElement btn1=driver.findElement(By.xpath("//input[@id= 'ContentPlaceHolder2_btnPaint3']"));
