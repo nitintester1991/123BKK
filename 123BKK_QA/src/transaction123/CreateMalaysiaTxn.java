@@ -23,6 +23,11 @@ public class CreateMalaysiaTxn {
 		
 		def.chrome();		
 		def.URL("https://uat.123.co.th/DemoShopping/shopping.aspx");
+		System.out.println("Site Launched");
+		def.click("XPaTh", "//a[contains(text(),'Cancel')]");
+		def.implicit(5);
+		
+		
 		
 //		def.Click_Xpath("//a[@class='login']");
 //		def.Element_ID("//a[@class='login']");

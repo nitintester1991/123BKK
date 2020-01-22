@@ -39,13 +39,76 @@ public class ClassDefinitions {
 		this.driver.get(url);
 	}
 
-	public void Element_ID(String id) {
-		this.driver.findElement(By.id(id));
+//	public void Element_ID(String id) {
+//		this.driver.findElement(By.id(id));
+//	}
+//
+//	public void Element_Xpath(String xpath) {
+//		this.driver.findElement(By.xpath(xpath));
+//	}
+	
+	public void getInput(String locator, String value) {
+		String locate = locator.toLowerCase();
+		switch (locate){
+		case "xpath":
+			this.driver.findElement(By.xpath(value));
+			break;
+		case "name":
+			this.driver.findElement(By.name(value));
+			break;
+		case "cssselector":
+			this.driver.findElement(By.cssSelector(value));
+			break;
+		case "id":
+			this.driver.findElement(By.id(value));
+			break;
+		case "linktext":
+			this.driver.findElement(By.linkText(value));
+			break;
+		case "tagname":
+			this.driver.findElement(By.tagName(value));
+			break;
+		case "classname":
+			this.driver.findElement(By.className(value));
+			break;
+		}
 	}
-
-	public void Element_Xpath(String xpath) {
-		this.driver.findElement(By.xpath(xpath));
+	
+	public void click(String locator, String value) {
+		String locate = locator.toLowerCase();
+		switch (locate){
+		case "xpath":
+			this.driver.findElement(By.xpath(value)).click();
+			break;
+		case "name":
+			this.driver.findElement(By.name(value)).click();
+			break;
+		case "cssselector":
+			this.driver.findElement(By.cssSelector(value)).click();
+			break;
+		case "id":
+			this.driver.findElement(By.id(value)).click();
+			break;
+		case "linktext":
+			this.driver.findElement(By.linkText(value)).click();
+			break;
+		case "tagname":
+			this.driver.findElement(By.tagName(value)).click();
+			break;
+		case "classname":
+			this.driver.findElement(By.className(value)).click();
+			break;
+		}
 	}
+	
+	public void implicit(long time) {
+		this.driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+		System.out.println("Wait time is "+time);
+	}
+	public void explicit() {
+		
+	}
+	
 	
 	public void Click_Xpath(String xpath) {
 		this.driver.findElement(By.xpath(xpath)).click();;
@@ -56,7 +119,7 @@ public class ClassDefinitions {
 	
 	/*
 	 * 
-	 * Try this one except othere
+	 * Try this one except other
 	 */
 	
 
@@ -120,4 +183,5 @@ public class ClassDefinitions {
   		this.driver.close();
   		this.driver.switchTo().window(tabs2.get(1));
   	}
+	
 }
