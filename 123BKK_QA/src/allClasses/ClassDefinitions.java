@@ -1,18 +1,12 @@
 package allClasses;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.io.FileUtils;
-//import org.apache.poi.xssf.usermodel.XSSFSheet;
-//import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -23,8 +17,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.interactions.Actions;
-
-import transaction123.CreateMalaysiaTxn;
 
 public class ClassDefinitions {
 	
@@ -76,7 +68,7 @@ public class ClassDefinitions {
 //		this.driver.findElement(By.xpath(xpath));
 //	}
 	
-	public void getInput(String locator, String value) {
+	public void getInput(String locator, String value, String data) {
 		String locate = locator.toLowerCase();
 		switch (locate){
 		case "xpath":
@@ -103,135 +95,54 @@ public class ClassDefinitions {
 		}
 	}
 	
-	public void click(String locator, String value) {
+	public WebElement click(String locator, String value) {
+		WebElement element=null;
 		String locate = locator.toLowerCase();
 		switch (locate){
 		case "xpath":
-			this.driver.findElement(By.xpath(value)).click();
+			element = this.driver.findElement(By.xpath(value));
 			break;
 		case "name":
-			this.driver.findElement(By.name(value)).click();
+			element= this.driver.findElement(By.name(value));
 			break;
 		case "cssselector":
-			this.driver.findElement(By.cssSelector(value)).click();
+			element=this.driver.findElement(By.cssSelector(value));
 			break;
 		case "id":
-			this.driver.findElement(By.id(value)).click();
+			element=this.driver.findElement(By.id(value));
 			break;
 		case "linktext":
-			this.driver.findElement(By.linkText(value)).click();
+			element=this.driver.findElement(By.linkText(value));
 			break;
 		case "tagname":
-			this.driver.findElement(By.tagName(value)).click();
+			element=this.driver.findElement(By.tagName(value));
 			break;
 		case "classname":
-			this.driver.findElement(By.className(value)).click();
+			element=this.driver.findElement(By.className(value));
 			break;
 		}
+		return element;
 	}
+	
+	public void sendData() {
+		
+	}
+	
+	
 	
 	public void implicit() {
 		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 	}
-	public void explicit() {
-
-	}
 	
 	
-	public void Click_Xpath(String xpath) {
-		this.driver.findElement(By.xpath(xpath)).click();;
-	}
-	public void Click_id(String id) {
-		this.driver.findElement(By.id(id)).click();;
-	}
 	
-//	public static String excelRead(int row, int cell) {
-//		try {
-//			File src = new File(prop.getProperty("CustomerDetails"));
-//			FileInputStream fis = new FileInputStream(src);
-//			XSSFWorkbook wb = new XSSFWorkbook(fis);
-//			XSSFSheet sh1 = wb.getSheetAt(0);
-//			text = sh1.getRow(row).getCell(cell).getStringCellValue();
-//			System.out.println(text);
-//			fis.close();
-//		} catch (Exception e) {
-//
-//			System.out.println(e.getMessage());
-//
-//		}
-//		return text;
+//	public void Click_Xpath(String xpath) {
+//		this.driver.findElement(By.xpath(xpath)).click();;
 //	}
-//
-//	public static String excelReadInt(int row, int cell) {
-//		try {
-//			File src = new File(prop.getProperty("CustomerDetails"));
-//			FileInputStream fis = new FileInputStream(src);
-//			XSSFWorkbook wb = new XSSFWorkbook(fis);
-//			XSSFSheet sh1 = wb.getSheetAt(0);
-//			int x = (int) sh1.getRow(row).getCell(cell).getNumericCellValue();
-//			intText = String.valueOf(x);
-//			fis.close();
-//		} catch (Exception e) {
-//
-//			System.out.println(e.getMessage());
-//
-//		}
-//		return intText;
+//	public void Click_id(String id) {
+//		this.driver.findElement(By.id(id)).click();;
 //	}
-//
-//	public static void ExcelReadAndWrite(int row, int cell) {
-//		try {
-//			File src = new File(prop.getProperty("CustomerDetails"));
-//			FileInputStream fis = new FileInputStream(src);
-//			XSSFWorkbook wb = new XSSFWorkbook(fis);
-//			XSSFSheet sh1 = wb.getSheetAt(0);
-//			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-//			Date date = new Date();
-//			String datetext = dateFormat.format(date);
-//			String q = sh1.getRow(row).getCell(cell).getStringCellValue().substring(0, 6);
-//			String s1 = q + datetext;
-//			fis.close();
-//
-//			File src1 = new File(prop.getProperty("CustomerDetails"));
-//			FileInputStream fis1 = new FileInputStream(src1);
-//			XSSFWorkbook wb1 = new XSSFWorkbook(fis1);
-//			XSSFSheet sh12 = wb1.getSheetAt(0);
-//			sh12.getRow(row).createCell(cell).setCellValue(s1);
-//
-//			FileOutputStream fout = new FileOutputStream(new File(prop.getProperty("CustomerDetails")));
-//
-//			wb1.write(fout);
-//
-//			fout.close();
-//
-//		} catch (Exception e) {
-//
-//			System.out.println(e.getMessage());
-//
-//		}
-//
-//	}
-//
-//	public static void ExcelWrite() {
-//		try {
-//			File src1 = new File(prop.getProperty("newCoolerAsset"));
-//			FileInputStream fis1 = new FileInputStream(src1);
-//			XSSFWorkbook wb1 = new XSSFWorkbook(fis1);
-//			XSSFSheet sh12 = wb1.getSheetAt(0);
-//			sh12.getRow(1).createCell(1).setCellValue(s1);
-//
-//			FileOutputStream fout = new FileOutputStream(new File(prop.getProperty("newCoolerAsset")));
-//
-//			wb1.write(fout);
-//
-//			fout.close();
-//
-//		} catch (Exception e) {
-//
-//			System.out.println(e.getMessage());
-//
-//		}
-//	}
+//	
 	
 
 	public void close() {
@@ -295,5 +206,11 @@ public class ClassDefinitions {
   		this.driver.close();
   		this.driver.switchTo().window(tabs2.get(1));
   	}
+
+	public void enterData(String string, WebElement ele) {
+		
+	}
+
+	
 	
 }
